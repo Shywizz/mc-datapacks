@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.autoIndent": "advanced",
+
+		"datapack.features.colors": false,
+		"datapack.features.documentHighlighting": false,
+
+		"settings.cycle": [
+			{
+				"id": "jmcToggle", 
+				"overrideWorkspaceSettings": true,
+				"values": [
+					{"files.associations": {"*.jmc": "jmc"}},
+					{"files.associations": {"*.jmc": "mcfunction"},
+					}
+				]
+			}
+		]
+	}
+}

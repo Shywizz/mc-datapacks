@@ -1,0 +1,1 @@
+schedule src.game.code.main()

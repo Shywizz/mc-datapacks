@@ -1,0 +1,8 @@
+execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:sand",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_sand
+execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:stone",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_stone
+execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:glass",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_moss
+execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:mossy_cobblestone",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_moss
+execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:netherrack",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_netherrack
+execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:obsidian",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_obsidian
+execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:iron_block",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_iron
+execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{Slot:0b}]}}}]}] at @s run data modify entity @s ArmorItems[3].tag.BlockEntityTag.Items[0].Count set value 0b

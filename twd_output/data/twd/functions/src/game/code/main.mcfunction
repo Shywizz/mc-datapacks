@@ -1,0 +1,1 @@
+execute as @a[tag=twd_game.player] run stopsound @s * minecraft:block.portal.ambient
