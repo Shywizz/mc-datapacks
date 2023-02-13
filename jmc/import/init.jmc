@@ -1,0 +1,4 @@
+Scoreboard.add(var,dummy);
+Scoreboard.add(wave,dummy);
+Scoreboard.add(globals,dummy);
+

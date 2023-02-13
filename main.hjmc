@@ -1,0 +1,6 @@
+#define twd_enemy_sand item ~ ~ ~ {Item:{id:"sand",Count:1b},Motion:[0.0,0.438,0.0]}
+#define twd_enemy_stone item ~ ~ ~ {Item:{id:"stone",Count:1b},Motion:[0.0,0.438,0.0]}
+#define twd_enemy_moss item ~ ~ ~ {Item:{id:"mossy_cobblestone",Count:1b},Motion:[0.0,0.438,0.0]}
+#define twd_enemy_netherrack item ~ ~ ~ {Item:{id:"netherrack",Count:1b},Motion:[0.0,0.438,0.0]}
+#define twd_enemy_iron item ~ ~ ~ {Item:{id:"iron_block",Count:1b},Motion:[0.0,0.438,0.0]}
+#define twd_enemy_obsidian item ~ ~ ~ {Item:{id:"obsidian",Count:1b},Motion:[0.0,0.438,0.0]}

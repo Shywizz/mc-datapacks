@@ -1,0 +1,7 @@
+new tags.blocks(tower_placement_exeptions){
+    "values": [
+        "minecraft:red_wool",
+        "minecraft:air",
+        "minecraft:crying_obsidian"
+    ]
+}
