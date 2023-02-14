@@ -59,15 +59,15 @@ class src.game.code{
             execute as @a[tag=twd_game.shop] unless entity @s[x=35,y=23,z=-27,dx=10,dy=7,dz=13] run tag @s remove twd_game.shop;
 }
     }
-class twd.dev {
+class src.dev {
     function fly(){
-        execute as @a[predicate=twd:is_sneak] at @s if block ~ ~-1 ~ air if block ~ ~-2 ~ air run tag @s add _dev-flying;
-        execute as @a[tag=_dev-flying,predicate=twd:is_sneak] run item replace entity @s armor.chest with elytra;
-        execute as @a[tag=_dev-flying,predicate=twd:is_sneak] run item replace entity @s weapon.offhand with firework_rocket{Fireworks:{Flight:2b}};
+        execute as @a[predicate=twd:sneaking] at @s if block ~ ~-1 ~ air if block ~ ~-2 ~ air run tag @s add _dev-flying;
+        execute as @a[tag=_dev-flying,predicate=twd:sneaking] run item replace entity @s armor.chest with elytra;
+        execute as @a[tag=_dev-flying,predicate=twd:sneaking] run item replace entity @s weapon.offhand with firework_rocket{Fireworks:{Flight:2b}};
         execute as @a[tag=_dev-flying,nbt={FallFlying:1b}] at @s if block ~ ~ ~ air if block ~ ~-1 ~ air if block ^ ^ ^0.65 air run Particle.line("flame",0.8,1,0,10,normal);
-        execute as @a[tag=_dev-flying,predicate=twd:is_sneak] at @s unless block ~ ~-1 ~ air unless block ~ ~-1 ~ moving_piston run item replace entity @s armor.chest with air;
+        execute as @a[tag=_dev-flying,predicate=twd:sneaking] at @s unless block ~ ~-1 ~ air unless block ~ ~-1 ~ moving_piston run item replace entity @s armor.chest with air;
         execute as @a[tag=_dev-flying] at @s unless block ~ ~-1 ~ air unless block ~ ~-1 ~ moving_piston run item replace entity @s weapon.offhand with air;
-        execute as @a[tag=_dev-flying] if predicate twd:is_sneak at @s unless block ~ ~-1 ~ air unless block ~ ~-1 ~ moving_piston run tag @s remove _dev-flying;
+        execute as @a[tag=_dev-flying] if predicate twd:sneaking at @s unless block ~ ~-1 ~ air unless block ~ ~-1 ~ moving_piston run tag @s remove _dev-flying;
         }
     function dev_reload(){
         execute as Shywizz if entity @e[nbt={Item: {id:"minecraft:debug_stick",Count:1b}},nbt=!{Item: {tag:{debugGui:{give_stick:1b}}}}] run reload;
@@ -83,8 +83,6 @@ class twd.dev {
         execute as @e[tag=twd_dev.test] at @s anchored feet align z if block ~ ~-1.85 ~ cyan_glazed_terracotta[facing=west] run tp @s ~0.085 ~ ~.5 -90 ~;
         execute as @e[tag=twd_dev.test] at @s if block ~ ~-1.968 ~ air run kill @s;
     }
-    
-}
     function twd.dev.summon(){
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{unit:0b}}}}] at @s align xz run summon armor_stand ~0.5 ~0.15 ~0.5 {CustomNameVisible:1b,Silent:1b,Invulnerable:1b,ShowArms:1b,Small:1b,NoBasePlate:1b,Tags:["groundUnit","unit"],DisabledSlots:4144959,Rotation:[90F,0F],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:10262861}}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:15460213}}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:15460213}}},{id:"minecraft:sand",Count:1b,Slot:0b}],CustomName:'{"text":"Sand","color":"#D6D36B","bold":true}'};
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{unit:1b}}}}] at @s align xz run summon armor_stand ~0.5 ~0.15 ~0.5 {CustomNameVisible:1b,Silent:1b,Invulnerable:1b,ShowArms:1b,Small:1b,NoBasePlate:1b,Tags:["groundUnit","unit"],DisabledSlots:4144959,Rotation:[90F,0F],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:16777215}}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:12910583}}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:11403260}}},{id:"minecraft:glass",Count:1b,Slot:0b}],CustomName:'{"text":"Glass","color":"#C4FFF7","bold":true,"italic":true}'};
@@ -92,4 +90,6 @@ class twd.dev {
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{unit:3b}}}}] at @s align xz run summon armor_stand ~0.5 ~0.15 ~0.5 {CustomNameVisible:1b,Silent:1b,Invulnerable:1b,ShowArms:1b,Small:1b,NoBasePlate:1b,Tags:["groundUnit","unit"],DisabledSlots:4144959,Rotation:[90F,0F],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:1018904}}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:4170018}}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:6019356}}},{id:"minecraft:melon",Count:1b,Slot:0b}],CustomName:'{"text":"Melon","color":"#55D92E","bold":true,"italic":true}'};
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{unit:4b}}}}] at @s align xz run summon armor_stand ~0.5 ~0.15 ~0.5 {CustomNameVisible:1b,Silent:1b,Invulnerable:1b,ShowArms:1b,Small:1b,NoBasePlate:1b,Tags:["groundUnit","unit"],DisabledSlots:4144959,Rotation:[90F,0F],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:8537312}}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:4268656}}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:6634457}}},{id:"minecraft:chorus_flower",Count:1b,Slot:0b}],CustomName:'{"text":"Chorus","color":"#6032A6","bold":true}'};
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",tag:{customData:{}}}}] run kill @s;
+    
+}
 }

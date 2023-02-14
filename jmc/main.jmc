@@ -1,9 +1,9 @@
 @import "import/init";
 @import "import/tags";
 @import "import/predicates";
-Text.actionbar(@a,"&<dark_aqua>Datapack reloaded !");
 @import "twd";
+Text.actionbar(@a,"&<dark_aqua>Datapack reloaded !");
 
 function __tick__(){
-    schedule src.game.code.main();
+    schedule function twd:src/game/code/main;
 }
