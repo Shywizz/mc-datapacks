@@ -1,4 +1,3 @@
-@import "import/init";
 @import "import/tags";
 @import "import/predicates";
 @import "twd";
