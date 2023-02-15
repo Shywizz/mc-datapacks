@@ -1,1 +1,1 @@
-schedule src.game.code.main()
+schedule function twd:src/game/code/main

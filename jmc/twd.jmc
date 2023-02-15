@@ -1,7 +1,10 @@
 // twd.dev.summon();
+// twd.dev.packtools();
 class src.game.code{
         function main(){
             execute as @a[tag=twd_game.player] run stopsound @s * minecraft:block.portal.ambient;
+            execute as @a[x=35,y=23,z=-27,dx=10,dy=7,dz=13] run tag @s add twd_game.shop;
+            execute as @a[tag=twd_game.shop] run src.game.code.shop();
         }
         function read_parser(){
             execute as @e[type=armor_stand,tag=parser] at @s unless block ~ ~-.35 ~ chest{Items:[]} run {
@@ -33,10 +36,10 @@ class src.game.code{
             }
         }
         function path(){
-            execute as @e[tag=twd_game.unit] at @s align x if block ~ ~-0.35 ~ magenta_glazed_terracotta[facing=north] run tp @s ~0.487 ~ ~0.1 0 ~;
-            execute as @e[tag=twd_game.unit] at @s align z if block ~ ~-0.35 ~ magenta_glazed_terracotta[facing=east] run tp @s ~-0.1 ~ ~0.487 90 ~;
-            execute as @e[tag=twd_game.unit] at @s align x if block ~ ~-0.35 ~ magenta_glazed_terracotta[facing=south] run tp @s ~0.487 ~ ~-0.1 180 ~;
-            execute as @e[tag=twd_game.unit] at @s align z if block ~ ~-0.35 ~ magenta_glazed_terracotta[facing=west] run tp @s ~0.1 ~ ~0.487 -90 ~;
+            execute as @s align x if block ~ ~-0.35 ~ magenta_glazed_terracotta[facing=north] run tp @s ~0.487 ~ ~0.1 0 ~;
+            execute as @s align z if block ~ ~-0.35 ~ magenta_glazed_terracotta[facing=east] run tp @s ~-0.1 ~ ~0.487 90 ~;
+            execute as @s align x if block ~ ~-0.35 ~ magenta_glazed_terracotta[facing=south] run tp @s ~0.487 ~ ~-0.1 180 ~;
+            execute as @s align z if block ~ ~-0.35 ~ magenta_glazed_terracotta[facing=west] run tp @s ~0.1 ~ ~0.487 -90 ~;
         }
         function lobby(){
             execute as @a[tag=twd_game.player] at @s run tp @s ~ ~ ~;
@@ -46,19 +49,31 @@ class src.game.code{
         }
         
         function construtor(){
-            Raycast.simple(()=>{tag @e[tag=twd_game.tower,limit=1,distance=..1,sort=nearest] add twd_tower.interact;},()=>{particle ash ~ ~ ~ 0 0 0 0 8 normal;});
-            Scoreboard.add(fungus.click,minecraft.used:minecraft.warped_fungus_on_a_stick);
-            execute as @a at @s if score @s fungus.click matches 1 run say "i was clicked once";
-            execute as @a[tag=twd.game_player] at @s if score @s fungus.click matches 1 run scoreboard players reset @s fungus.click;
-            execute as @e[tag=twd_game,tag=twd_game.tower,tag=twd_tower.interact] run tag @s remove twd_tower.interact;
+            execute as @s=twd_tower.interact] run tag @s remove twd_shop.interact;
         }
         function shop(){
+            say "i";
+            src.game.code.shop_click();
+            execute if score shopItemRotation var matches 360.. run scoreboard players set shopItemRotation var -360;
+            execute as @e[tag=twd_shop.item] at @s store result entity @s Rotation[0] float 0.5 run scoreboard players get shopItemRotation var;
             execute as @a[x=35,y=23,z=-27,dx=10,dy=7,dz=13] run tag @s add twd_game.shop;
-    
-            // execute as @a[tag=twd_game.shop] run scoreboard players add @s shop_jingle 1;
-            execute as @a[tag=twd_game.shop] unless entity @s[x=35,y=23,z=-27,dx=10,dy=7,dz=13] run tag @s remove twd_game.shop;
-}
+        }
+        function shop_click(){
+            say "u";
+            tag @s add twd_game.shop.next.click;
+            execute as @s[tag=twd_game.shop.next.click] run say "click next";
+            tag @s remove twd_game.shop.next.click;
+# execute as @s[tag=twd_game.shop.next.click] at @s positioned ~ ~2 ~ run particle dust 1 0.984 0.02 1 ~ ~ ~ 0 0 0 0 3 normal;
+# execute as @s[tag=twd_game.shop.next.click] run tag @s remove twd_game.shop.next.click;
+
+            tag @s add twd_shop.prev.click;
+            execute as @s[tag=twd_shop.prev.click] run say "click prev";
+            tag @s remove twd_shop.prev.click;
+# execute as @s[tag=twd_shop.prev.click] at @s positioned ~ ~2 ~ run particle dust 1 0.718 0 1 ~ ~ ~ 0 0 0 0 1 normal;
+# execute as @s[tag=twd_shop.prev.click] run tag @s remove twd_shop.prev.click;
+        }
     }
+ 
 class src.dev {
     function fly(){
         execute as @a[predicate=twd:sneaking] at @s if block ~ ~-1 ~ air if block ~ ~-2 ~ air run tag @s add _dev-flying;
@@ -84,12 +99,15 @@ class src.dev {
         execute as @e[tag=twd_dev.test] at @s if block ~ ~-1.968 ~ air run kill @s;
     }
     function twd.dev.summon(){
+        playsound block.note_block.bit master @a;
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{unit:0b}}}}] at @s align xz run summon armor_stand ~0.5 ~0.15 ~0.5 {CustomNameVisible:1b,Silent:1b,Invulnerable:1b,ShowArms:1b,Small:1b,NoBasePlate:1b,Tags:["groundUnit","unit"],DisabledSlots:4144959,Rotation:[90F,0F],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:10262861}}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:15460213}}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:15460213}}},{id:"minecraft:sand",Count:1b,Slot:0b}],CustomName:'{"text":"Sand","color":"#D6D36B","bold":true}'};
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{unit:1b}}}}] at @s align xz run summon armor_stand ~0.5 ~0.15 ~0.5 {CustomNameVisible:1b,Silent:1b,Invulnerable:1b,ShowArms:1b,Small:1b,NoBasePlate:1b,Tags:["groundUnit","unit"],DisabledSlots:4144959,Rotation:[90F,0F],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:16777215}}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:12910583}}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:11403260}}},{id:"minecraft:glass",Count:1b,Slot:0b}],CustomName:'{"text":"Glass","color":"#C4FFF7","bold":true,"italic":true}'};
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{unit:2b}}}}] at @s align xz run summon armor_stand ~0.5 ~0.15 ~0.5 {CustomNameVisible:1b,Silent:1b,Invulnerable:1b,ShowArms:1b,Small:1b,NoBasePlate:1b,Tags:["groundUnit","unit"],DisabledSlots:4144959,Rotation:[90F,0F],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:3552822}}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:7237230}}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:12237498}}},{id:"minecraft:cobblestone",Count:1b,Slot:0b}],CustomName:'{"text":"Stone","color":"#BABABA","bold":true}'};
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{unit:3b}}}}] at @s align xz run summon armor_stand ~0.5 ~0.15 ~0.5 {CustomNameVisible:1b,Silent:1b,Invulnerable:1b,ShowArms:1b,Small:1b,NoBasePlate:1b,Tags:["groundUnit","unit"],DisabledSlots:4144959,Rotation:[90F,0F],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:1018904}}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:4170018}}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:6019356}}},{id:"minecraft:melon",Count:1b,Slot:0b}],CustomName:'{"text":"Melon","color":"#55D92E","bold":true,"italic":true}'};
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{unit:4b}}}}] at @s align xz run summon armor_stand ~0.5 ~0.15 ~0.5 {CustomNameVisible:1b,Silent:1b,Invulnerable:1b,ShowArms:1b,Small:1b,NoBasePlate:1b,Tags:["groundUnit","unit"],DisabledSlots:4144959,Rotation:[90F,0F],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:8537312}}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:4268656}}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:6634457}}},{id:"minecraft:chorus_flower",Count:1b,Slot:0b}],CustomName:'{"text":"Chorus","color":"#6032A6","bold":true}'};
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",tag:{customData:{}}}}] run kill @s;
-    
-}
+    }
+    function packtools(){
+        execute as @e[nbt={Item:{tag:{packTricks:{"summonAeC":1b}}}}] at @s align xz unless block ~ ~-0.25 ~ air run summon area_effect_cloud ~.5 ~ ~.5 {CustomName:'{"text": "change me !","italic": true,"color": "light_purple"}',CustomNameVisible:1b,Duration:2147000,Tags:["dev","default","temp"]};
+    }
 }

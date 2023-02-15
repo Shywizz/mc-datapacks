@@ -5,5 +5,5 @@
 Text.actionbar(@a,"&<dark_aqua>Datapack reloaded !");
 
 function __tick__(){
-    schedule function twd:src/game/code/main;
+    schedule function src.game.code.main() 0t;
 }
