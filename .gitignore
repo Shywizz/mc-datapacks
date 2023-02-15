@@ -1,2 +1,5 @@
 twd_output/**
 *.mcfunction
+**/.vscode
+!jmc
+**/data/*

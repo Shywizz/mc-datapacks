@@ -1,1 +1,0 @@
-particle flame ^ ^ ^1.0000000000 0 0 0 0 10 normal

@@ -1,1 +1,0 @@
-execute as @e[type=armor_stand,tag=parser] at @s unless block ~ ~-.35 ~ chest{Items:[]} run function twd:__private__/anonymous/0
