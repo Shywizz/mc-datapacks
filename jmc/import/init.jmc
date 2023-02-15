@@ -2,18 +2,25 @@ Scoreboard.add(var,dummy);
 Scoreboard.add(wave,dummy);
 Scoreboard.add(globals,dummy);
 
+Player.firstJoin(src.game.host);
+src.game.restart();
+src.game.start();
 
-execute as @e[tag=twd_game,tag=!twd_permanent] run {
-data merge entity @s {DeathLootTable:"minecraft:empty",Silent:1b,Air:0};
-tp @s ~ -100 ~;
-kill @s;
-}
 
-function src.game.restart(){
-execute align xz positioned 42 24 -17 run summon villager ~.5 ~ ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,CustomNameVisible:1b,NoAI:1b,Rotation:[115.0F,0F],Tags:["twd_game","twd_game.shop"],CustomName:'{"text":"Ragner","color":"gold","bold":true,"italic":true}',Offers:{}};
-execute align xz positioned 39.2 23 -16 run summon armor_stand ~ ~ ~ {NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:["twd_game","twd_game.shop"],Pose:{Head:[0f,180f,0f]},ArmorItems:[{},{},{},{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:{Id:[I;1076217833,-884847001,-1256189948,1397261564],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmQ4NjVhYWUyNzQ2YTliOGU5YTRmZTYyOWZiMDhkMThkMGE5MjUxZTVjY2JlNWZhNzA1MWY1M2VhYjliOTQifX19"}]}}}}]};
-execute align xz positioned 41.8 23 -16 run summon armor_stand ~ ~ ~ {NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:["twd_game","twd_game.shop"],Pose:{Head:[0f,180f,0f]},ArmorItems:[{},{},{},{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:{Id:[I;415901772,-1069726940,-1973433206,1590491423],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTJmMDQyNWQ2NGZkYzg5OTI5MjhkNjA4MTA5ODEwYzEyNTFmZTI0M2Q2MGQxNzViZWQ0MjdjNjUxY2JlIn19fQ=="}]}}}}]};
 
-execute align xz positioned 39.2 23.6 -16 run summon villager ~ ~ ~ {NoAI:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,ActiveEffects:[{Id:1,Amplifier:0,Duration:2147483647,ShowParticles:false}],Tags:["twd_game","twd_game.shop","twd_shop.next"]};
-execute align xz positioned 41.8 23.6 -16 run summon villager ~ ~ ~ {NoAI:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,ActiveEffects:[{Id:1,Amplifier:0,Duration:2147483647,ShowParticles:false}],Tags:["twd_game","twd_game.shop","twd_shop.prev"]};
-}
+Player.onEvent(custom:talked_to_villager, ()=>{
+            Raycast.simple(
+              ()=>
+                {
+                if (entity @s[tag=twd_shop.next]){tag @s add twd_shop.next.click;}
+                if (entity @s[tag=twd_shop.prev]){tag @s add twd_shop.prev.click;}
+
+                },
+              ()=>{},
+              ()=>{},
+              0.25,
+              50,
+              0.25
+            );
+          }
+        );

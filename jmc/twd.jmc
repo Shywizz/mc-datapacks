@@ -1,5 +1,26 @@
 // twd.dev.summon();
 // twd.dev.packtools();
+
+    function src.game.start(){
+        execute align xz positioned 42 24 -17 run summon villager ~.5 ~ ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,CustomNameVisible:1b,NoAI:1b,Rotation:[115.0F,0F],Tags:["twd_game","twd_game.shop"],CustomName:'{"text":"Ragner","color":"gold","bold":true,"italic":true}',Offers:{}};
+        execute align xz positioned 39.2 23 -16 run summon armor_stand ~ ~ ~ {NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:["twd_game","twd_game.shop"],Pose:{Head:[0f,180f,0f]},ArmorItems:[{},{},{},{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:{Id:[I;1076217833,-884847001,-1256189948,1397261564],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmQ4NjVhYWUyNzQ2YTliOGU5YTRmZTYyOWZiMDhkMThkMGE5MjUxZTVjY2JlNWZhNzA1MWY1M2VhYjliOTQifX19"}]}}}}]};
+        execute align xz positioned 41.8 23 -16 run summon armor_stand ~ ~ ~ {NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:["twd_game","twd_game.shop"],Pose:{Head:[0f,180f,0f]},ArmorItems:[{},{},{},{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:{Id:[I;415901772,-1069726940,-1973433206,1590491423],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTJmMDQyNWQ2NGZkYzg5OTI5MjhkNjA4MTA5ODEwYzEyNTFmZTI0M2Q2MGQxNzViZWQ0MjdjNjUxY2JlIn19fQ=="}]}}}}]};
+
+        execute align xz positioned 39.2 23.6 -16 run summon villager ~ ~ ~ {NoAI:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,ActiveEffects:[{Id:1,Amplifier:0,Duration:2147483647,ShowParticles:false}],Tags:["twd_game","twd_game.shop","twd_shop.next"]};
+        execute align xz positioned 41.8 23.6 -16 run summon villager ~ ~ ~ {NoAI:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,ActiveEffects:[{Id:1,Amplifier:0,Duration:2147483647,ShowParticles:false}],Tags:["twd_game","twd_game.shop","twd_shop.prev"]};
+        
+    }
+    function src.game.host(){
+        execute unless entity @a[tag=host,limit=1] run tag @s add host;
+        tag @a[tag=!player] add player;
+}
+    function src.game.restart(){
+        execute as @e[tag=twd_game,tag=!twd_permanent] run {
+            data merge entity @s {DeathLootTable:"minecraft:empty",Silent:1b,Air:0};
+            tp @s ~ -100 ~;
+            kill @s;
+        }
+}
 class src.game.code{
         function main(){
             execute as @a[tag=twd_game.player] run stopsound @s * minecraft:block.portal.ambient;
@@ -47,10 +68,6 @@ class src.game.code{
             execute as @a[tag=twd_game.player] at @s run give @s written_book{pages:["Welcome to this half baked half finished looking map,\\nif you find this somewhere just please burn it."],author:"Shywizz",title:"§dThe basics",resolved:1b} 1;
             execute as @a[tag=twd_game.player] at @s run tag @s remove twd_game.player;
         }
-        
-        function construtor(){
-            execute as @s=twd_tower.interact] run tag @s remove twd_shop.interact;
-        }
         function shop(){
             say "i";
             src.game.code.shop_click();
@@ -63,17 +80,13 @@ class src.game.code{
             tag @s add twd_game.shop.next.click;
             execute as @s[tag=twd_game.shop.next.click] run say "click next";
             tag @s remove twd_game.shop.next.click;
-# execute as @s[tag=twd_game.shop.next.click] at @s positioned ~ ~2 ~ run particle dust 1 0.984 0.02 1 ~ ~ ~ 0 0 0 0 3 normal;
-# execute as @s[tag=twd_game.shop.next.click] run tag @s remove twd_game.shop.next.click;
 
             tag @s add twd_shop.prev.click;
             execute as @s[tag=twd_shop.prev.click] run say "click prev";
             tag @s remove twd_shop.prev.click;
-# execute as @s[tag=twd_shop.prev.click] at @s positioned ~ ~2 ~ run particle dust 1 0.718 0 1 ~ ~ ~ 0 0 0 0 1 normal;
-# execute as @s[tag=twd_shop.prev.click] run tag @s remove twd_shop.prev.click;
         }
     }
- 
+
 class src.dev {
     function fly(){
         execute as @a[predicate=twd:sneaking] at @s if block ~ ~-1 ~ air if block ~ ~-2 ~ air run tag @s add _dev-flying;
