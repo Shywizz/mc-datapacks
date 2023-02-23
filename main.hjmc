@@ -1,30 +1,18 @@
-#define twd_enemy_sand item ~ ~ ~ {Item:{id:"sand",Count:1b},Motion:[0.0,0.438,0.0]}
-#define twd_enemy_stone item ~ ~ ~ {Item:{id:"stone",Count:1b},Motion:[0.0,0.438,0.0]}
-#define twd_enemy_moss item ~ ~ ~ {Item:{id:"mossy_cobblestone",Count:1b},Motion:[0.0,0.438,0.0]}
-#define twd_enemy_netherrack item ~ ~ ~ {Item:{id:"netherrack",Count:1b},Motion:[0.0,0.438,0.0]}
-#define twd_enemy_iron item ~ ~ ~ {Item:{id:"iron_block",Count:1b},Motion:[0.0,0.438,0.0]}
-#define twd_enemy_obsidian item ~ ~ ~ {Item:{id:"obsidian",Count:1b},Motion:[0.0,0.438,0.0]}
-
-#del particle item
-#del item
-
-
-#credit                 /\
-#credit                /  \
-#credit               /    \
-#credit              /      \ 
-#credit             /   ██   \
-#credit            /    ██    \
-#credit           /     ██     \
-#credit          /      ██      \              HEY YOU !
-#credit         /       ██       \
-#credit        /                  \
-#credit       /         ██         \
-#credit      /______________________\
-#credit 
-#credit 
-#credit I really don't mind snooping around in someone's else's work, but please don't steal my work and republish it as yours
-#credit I can't really do anything if you do deceide to be evil, but it would be nice if i didn't have to hold a grudge against anyone reading this.
-#credit Thanks for reading, and have may the waves bless you !
+#credit "                /\ "
+#credit "               /  \ "
+#credit "              /    \ "
+#credit "             /      \ "
+#credit "            /   ██   \ "
+#credit "           /    ██    \ "
+#credit "          /     ██     \ "
+#credit "         /      ██      \              HEY YOU !"
+#credit "        /       ██       \ "
+#credit "       /                  \ "
+#credit "      /         ██         \ "
+#credit "     /______________________\ "
+#credit ""
+#credit "I really don't mind someone snooping around in someone's else's work, but please don't steal my work and republish it as yours !"
+#credit "I can't really do anything if you do decide to be evil, but it would be nice if i didn't have to hold a grudge against anyone reading this."
+#credit "Thanks for reading, and have may the waves bless you !"
 
 

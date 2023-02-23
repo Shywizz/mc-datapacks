@@ -4,17 +4,13 @@ Scoreboard.add(globals,dummy);
 
 Player.firstJoin(src.game.host);
 src.game.restart();
-src.game.start();
-
-
 
 Player.onEvent(custom:talked_to_villager, ()=>{
             Raycast.simple(
               ()=>
                 {
-                if (entity @s[tag=twd_shop.next]){tag @s add twd_shop.next.click;}
-                if (entity @s[tag=twd_shop.prev]){tag @s add twd_shop.prev.click;}
-
+                if (entity @s[tag=twd_shop.next,tag=!twd_shop.next.click]){say "next";}
+                if (entity @s[tag=twd_shop.prev,tag=!twd_shop.prev.click]){say "prev";}
                 },
               ()=>{},
               ()=>{},

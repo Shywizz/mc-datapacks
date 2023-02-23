@@ -1,8 +1,12 @@
 @import "import/tags";
 @import "import/predicates";
+@import "init";
 @import "twd";
 Text.actionbar(@a,"&<dark_aqua>Datapack reloaded !");
+src.game.restart();
+src.game.start();
+
 
 function __tick__(){
-    schedule function src.game.code.main() 0t;
+    src.game.code.main();
 }

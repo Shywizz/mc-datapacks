@@ -1,0 +1,6 @@
+{
+    "files.exclude": {
+        "**/.vscode": true,
+        "**/gm4_*": true
+    }
+}

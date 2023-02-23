@@ -1,8 +1,25 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": ".."
+    }
+  ],
+  "settings": {
+    "settings.cycle": [
+      {"id": "jmcToggle",
+        "values": [
+          {
+            "files.associations": {
+              "*.jmc": "mcfunction"
+            }
+          },
+          {
+            "files.associations": {
+              "*.jmc": "jmc"
+            }
+          }
+        ],"overrideWorkspaceSettings": true
+      }
+    ]
+  }
 }
