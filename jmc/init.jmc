@@ -1,9 +1,18 @@
 Scoreboard.add(var,dummy);
 Scoreboard.add(wave,dummy);
 Scoreboard.add(globals,dummy);
-
+    function funk(){
+        Hardcode.repeat(
+            "$id",
+            ()=>{
+                give @s paper{display:{Name:'{"text":"$i"}'}};
+            },
+                0,15
+            );
+        }
 Player.firstJoin(src.game.host);
 src.game.restart();
+src.game.start();
 
 Player.onEvent(custom:talked_to_villager, ()=>{
             Raycast.simple(

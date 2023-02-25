@@ -1,7 +1,7 @@
 **/jmc_config.json
 # output directory of the datapack, often set to "output", "client" or "datapack"
 **/*output
-
+**/*.zip
 
 !*.jmc
 !twd_output/data/twd/functions/src

@@ -20,6 +20,18 @@
           }
         ],"overrideWorkspaceSettings": true
       }
-    ]
+    ],
+    "datapack.env.permissionLevel": 4,
+    "datapack.lint.blockStateTrailingComma": true,
+    "datapack.lint.nameOfNbtCompoundTagKeys": null,
+    "datapack.lint.nbtCompoundBracketSpacing": {
+      "inside": 1
+    },
+    "datapack.lint.nbtCompoundColonSpacing": {
+      "after": 0
+    },
+    "mcdutil.env.language": "en",
+    "mcdutil.env.detectionDepth": 2,
+    "mcdutil.mcfFormatter.doInsertIMPDocument": false
   }
 }

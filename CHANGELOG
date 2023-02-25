@@ -1,0 +1,11 @@
+0.0.63.1 :
+ - added a working parser
+ - fixed an syntax issue in twd:src.game.restart
+ - modifed the world
+ - added a new changelog file (hello !!!)
+
+0.0.64 : 
+ - added new developper tools.
+ - added a new basic implementation of chest-in-chest parsing 
+ - modifed the world
+ 

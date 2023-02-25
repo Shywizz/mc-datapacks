@@ -4,9 +4,10 @@
 @import "twd";
 Text.actionbar(@a,"&<dark_aqua>Datapack reloaded !");
 src.game.restart();
-src.game.start();
 
 
 function __tick__(){
     src.game.code.main();
+    //Only exeption to the rule of dont tick functions 
+    src.dev.commodities();
 }

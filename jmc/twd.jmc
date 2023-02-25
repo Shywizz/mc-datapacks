@@ -1,84 +1,65 @@
 // src.dev.summon();
 // src.dev.packtools();
-
-
-    function src.game.start(){
-        execute align xz positioned 42 24 -17 run summon villager ~.5 ~ ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,CustomNameVisible:1b,NoAI:1b,Rotation:[115.0F,0F],Tags:["twd_game","twd_game.shop"],CustomName:'{"text":"Ragner","color":"gold","bold":true,"italic":true}',Offers:{}};
-        execute align xz positioned 39.2 23 -16 run summon armor_stand ~ ~ ~ {NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:["twd_game","twd_game.shop"],Pose:{Head:[0f,180f,0f]},ArmorItems:[{},{},{},{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:{Id:[I;1076217833,-884847001,-1256189948,1397261564],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmQ4NjVhYWUyNzQ2YTliOGU5YTRmZTYyOWZiMDhkMThkMGE5MjUxZTVjY2JlNWZhNzA1MWY1M2VhYjliOTQifX19"}]}}}}]};
-        execute align xz positioned 41.8 23 -16 run summon armor_stand ~ ~ ~ {NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:["twd_game","twd_game.shop"],Pose:{Head:[0f,180f,0f]},ArmorItems:[{},{},{},{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:{Id:[I;415901772,-1069726940,-1973433206,1590491423],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTJmMDQyNWQ2NGZkYzg5OTI5MjhkNjA4MTA5ODEwYzEyNTFmZTI0M2Q2MGQxNzViZWQ0MjdjNjUxY2JlIn19fQ=="}]}}}}]};
-
-        execute align xz positioned 39.2 23.6 -16 run summon villager ~ ~ ~ {NoAI:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,ActiveEffects:[{Id:1,Amplifier:0,Duration:2147483647,ShowParticles:false}],Tags:["twd_game","twd_game.shop","twd_shop.next"]};
-        execute align xz positioned 41.8 23.6 -16 run summon villager ~ ~ ~ {NoAI:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,ActiveEffects:[{Id:1,Amplifier:0,Duration:2147483647,ShowParticles:false}],Tags:["twd_game","twd_game.shop","twd_shop.prev"]};
-        
+src.dev.commodities();
+function src.game.start()
+    {
+    execute align xz positioned 42 24 -17 run summon villager ~.5 ~ ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,CustomNameVisible:1b,NoAI:1b,Rotation:[115.0F,0F],Tags:["twd_game","twd_game.shop"],CustomName:'{"text":"Ragner","color":"gold","bold":true,"italic":true}',Offers:{}};
+    execute align xz positioned 39.2 23 -16 run summon armor_stand ~ ~ ~ {NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:["twd_game","twd_game.shop"],Pose:{Head:[0f,180f,0f]},ArmorItems:[{},{},{},{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:{Id:[I;1076217833,-884847001,-1256189948,1397261564],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmQ4NjVhYWUyNzQ2YTliOGU5YTRmZTYyOWZiMDhkMThkMGE5MjUxZTVjY2JlNWZhNzA1MWY1M2VhYjliOTQifX19"}]}}}}]};
+    execute align xz positioned 41.8 23 -16 run summon armor_stand ~ ~ ~ {NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:["twd_game","twd_game.shop"],Pose:{Head:[0f,180f,0f]},ArmorItems:[{},{},{},{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:{Id:[I;415901772,-1069726940,-1973433206,1590491423],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTJmMDQyNWQ2NGZkYzg5OTI5MjhkNjA4MTA5ODEwYzEyNTFmZTI0M2Q2MGQxNzViZWQ0MjdjNjUxY2JlIn19fQ=="}]}}}}]};
+    execute align xz positioned 39.2 23.6 -16 run summon villager ~ ~ ~ {NoAI:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,ActiveEffects:[{Id:1,Amplifier:0,Duration:2147483647,ShowParticles:false}],Tags:["twd_game","twd_game.shop","twd_shop.next"]};
+    execute align xz positioned 41.8 23.6 -16 run summon villager ~ ~ ~ {NoAI:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,ActiveEffects:[{Id:1,Amplifier:0,Duration:2147483647,ShowParticles:false}],Tags:["twd_game","twd_game.shop","twd_shop.prev"]};
     }
-    function src.game.host(){
-        execute unless entity @a[tag=host,limit=1] run tag @s add host;
-        tag @a[tag=!player] add player;
-}
-    function src.game.restart(){
-        execute as @e[tag=twd_game,tag=!twd_permanent] at @s run {
-            data merge entity @s {DeathLootTable:"minecraft:empty",Silent:1b,Air:0};
-            tp @s ~ -100 ~;
-            kill @s;
+function src.game.host()
+    {
+    execute unless entity @a[tag=host,limit=1] run tag @s add host;
+    tag @a[tag=!player] add player;
+    }
+function src.game.restart()
+    {
+    execute as @e[tag=twd_game,tag=!twd_permanent] at @s run 
+        {
+        data merge entity @s {DeathLootTable:"minecraft:empty",Silent:1b,Air:0};
+        tp @s ~ -100 ~;
+        kill @s;
         }
-    src.game.start();
     }
-    function src.game.game_over(){
-        Text.subtitle(@a[tag=twd_game.player],"&<italic,white>You managed to fend off the enemies for &<globals:gametime>");
-        Text.title(@a[tag=twd_game.player],"&<bold,dark_red>Game over");
-    }
-class src.game.code{
-    function main(){
+function src.game.game_over(){
+    Text.subtitle(@a[tag=twd_game.player],"&<italic,white>You managed to fend off the enemies for &<globals:gametime>");
+    Text.title(@a[tag=twd_game.player],"&<bold,dark_red>Game over");
+}
+class src.game.code {
+    function main()
+        {
         execute as @a[tag=twd_game.player] run stopsound @s * minecraft:block.portal.ambient;
         execute as @a[x=35,y=23,z=-27,dx=10,dy=7,dz=13,tag=!twd_game.shop] run tag @s add twd_game.shop;
         execute as @a[tag=twd_game.shop] unless entity @s[x=35,y=23,z=-27,dx=10,dy=7,dz=13] run tag @s remove twd_game.shop;
         execute as @a[tag=twd_game.shop] run src.game.code.shop();
-    }
-    function read_parser(){
-        execute as @e[type=armor_stand,tag=parser] at @s unless block ~ ~-.35 ~ chest{Items:[]} run {
-        scoreboard players add @s wave 1;
-        execute if score @s wave matches 5.. at @s run playsound block.note_block.harp master @s;
-        execute if score @s wave matches 5.. at @s run data modify entity @s ArmorItems[3].tag.BlockEntityTag.Items[0].Count set value 0b;
-        execute if score @s wave matches 5.. at @s run scoreboard players reset @s wave;
-            }
-    }
-    function load_chest(){
-        execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:sand",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_sand;
-        execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:stone",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_stone;
-        execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:glass",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_moss;
-        execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:mossy_cobblestone",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_moss;
-        execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:netherrack",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_netherrack ;
-        execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:obsidian",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_obsidian;
-        execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{id:"minecraft:iron_block",Count:1b,Slot:0b}]}}}]}] at @s run summon twd_enemy_iron;
-        execute as @e[type=armor_stand,tag=twd_p,nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{Slot:0b}]}}}]}] at @s run data modify entity @s ArmorItems[3].tag.BlockEntityTag.Items[0].Count set value 0b;
-    }
-    function chest_hop(){
-        execute as @e[tag=dev_parse] at @s run {
-            item replace block ~ ~ ~ container.0 with air;
-            Hardcode.repeat("index",()=>{data modify block ~ ~ ~ Items[{Slot:Hardcode.calc(index+1)b}].Slot set value indexb;},0,27);
-            // Hardcode.repeat("index",()=>{data modify block ~ ~ ~ Items[index].Slot set value indexb;},0,27);
+        }
+    function parser.step(){
+        execute as @e[tag=twd_c] at @s run {
+            src.game.code.parser.check();
+            data remove block ~ ~ ~ Items[0].tag.BlockEntityTag.Items[0];
+            Hardcode.repeat("$i",()=>{data modify block ~ ~ ~ Items[0].tag.BlockEntityTag.Items[Hardcode.calc($i+1)].Slot set value $ib;},0,26);
         }
     }
-    function slot_hop(){
-        execute as @e[tag=twd_p] run {
-            JMC.put("#Moves each slot one to the left");
-            JMC.put("#data modify entity @s ArmorItems[3].tag.BlockEntityTag.Items[$i].Count set value $ib;");
-            Hardcode.repeat("$i",()=>{data modify entity @s ArmorItems[3].tag.BlockEntityTag.Items[Hardcode.calc($i+1)].Slot set value $ib;},0,26);
-        }
+    function parser.loop(){
+        execute unless block ~ ~ ~ chest{Items:[{Slot}]};
     }
-    function move_storage(){
-        execute as @e[tag=twd_p] run {
-            execute if entity @s[nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:melon"}]}}}]}] run data modify storage twd:wave currentWave.enemy prepend from entity @s ArmorItems[3].tag.BlockEntityTag.Items[0];
-            execute if entity @s[nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:sand"}]}}}]}] run data modify storage twd:wave currentWave.enemy prepend from entity @s ArmorItems[3].tag.BlockEntityTag.Items[0];
-            execute if entity @s[nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:glass"}]}}}]}] run data modify storage twd:wave currentWave.enemy prepend from entity @s ArmorItems[3].tag.BlockEntityTag.Items[0];
-            execute if entity @s[nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:stone"}]}}}]}] run data modify storage twd:wave currentWave.enemy prepend from entity @s ArmorItems[3].tag.BlockEntityTag.Items[0];
-            execute if entity @s[nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:oak_plank"}]}}}]}] run data modify storage twd:wave currentWave.enemy prepend from entity @s ArmorItems[3].tag.BlockEntityTag.Items[0];
-            execute if entity @s[nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:netherrack"}]}}}]}] run data modify storage twd:wave currentWave.enemy prepend from entity @s ArmorItems[3].tag.BlockEntityTag.Items[0];
-            execute if entity @s[nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:obsidian"}]}}}]}] run data modify storage twd:wave currentWave.enemy prepend from entity @s ArmorItems[3].tag.BlockEntityTag.Items[0];
-            execute if entity @s[nbt={ArmorItems:[{},{},{},{tag:{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:bedrock"}]}}}]}] run data modify storage twd:wave currentWave.enemy prepend from entity @s ArmorItems[3].tag.BlockEntityTag.Items[0];
+    // TODO: Make parser for chest-in-chest
+    // TODO: Output parsed data to storage array
+    // TODO: Summon entites from read storage data
+    // TODO: Shop basic selection + buying system
+    // TODO: Main menu/box/lobby
+    // TODO: New user world
+    function parser.check(){
+        Hardcode.repeatList(
+            "$id",
+            ()=>{
+                execute if block ~ ~ ~ chest{Items:[{Slot:0b,tag:{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:$id",Count:1b}]}}}]} run summon item ~ ~0.5 ~ {Motion:[0.085,0.0],Item:{id:"minecraft:$id",Count:1b}};
+            },
+                ["sand","stone","glass","grass_block","melon","obsidian","netherrack","bedrock"]
+            );
         }
-    }
-
     function path(){
         execute as @e[tag=twd_game.unit] at @s align x if block ~ ~-2.35 ~ magenta_glazed_terracotta[facing=north] run tp @s ~0.487 ~ ~0.1 0 ~;
         execute as @e[tag=twd_game.unit] at @s align z if block ~ ~-2.35 ~ magenta_glazed_terracotta[facing=east] run tp @s ~-0.1 ~ ~0.487 90 ~;
@@ -114,13 +95,16 @@ class src.game.code{
     }
     function shop.next(){
         execute as @s[tag=twd_game.shop.next.click] run say "click next";
-        execute as @s[tag=twd_game.shop.next,tag=twd_game.shop.next.click] run tag @s remove twd_game.shop.next.click;
     }
     function shop.prev(){
         execute as @s[tag=twd_shop.prev.click] run say "click prev";
+        execute as @s[tag=twd_shop.prev.click] run scoreboard players add @s timer 1;
+        execute as @s[tag=twd_shop.prev.click] at @s if score @s timer matches 0..8 run tp @s ^ ^ ^-0.06;
+        execute as @s[tag=twd_shop.prev.click] if score @s timer matches 8..16 run tp @s ^ ^ ^0.06;
+        execute as @s[tag=twd_shop.prev.click] if score @s timer matches 16.. run scoreboard players reset @s timer;
         execute as @s[tag=twd_shop.prev,tag=twd_shop.prev.click] run tag @s remove twd_shop.prev.click;
     }
-    }
+}
 class src.dev {
     function fly(){
         execute as @a[predicate=twd:sneaking] at @s if block ~ ~-1.35 ~ air run tag @s add dev_flying;
@@ -136,14 +120,13 @@ class src.dev {
         execute as Shywizz if entity @e[nbt={Item: {id:"minecraft:debug_stick",Count:1b}},nbt=!{Item: {tag:{debugGui:{give_stick:1b}}}}] run item replace entity @s hotbar.3 with debug_stick;
         execute as @e[nbt={Item:{id:"minecraft:debug_stick",Count:1b}}] run kill @s;
     }
-    function wave_managr(){
-        execute as @e[tag=twd_dev.test] at @s if block ~ ~-.35 ~ chest run tp @s ~ ~-1.125 ~ ~ ~;
-        execute as @e[tag=twd_dev.test] at @s if block ~ ~-.35 ~ chest run data merge entity @s {NoGravity:1b};
-        execute as @e[tag=twd_dev.test] at @s anchored feet align x if block ~ ~-1.85 ~ cyan_glazed_terracotta[facing=north] run tp @s ~.5 ~ ~0.085 0 ~;
-        execute as @e[tag=twd_dev.test] at @s anchored feet align z if block ~ ~-1.85 ~ cyan_glazed_terracotta[facing=east] run tp @s ~-0.085 ~ ~.5 90 ~;
-        execute as @e[tag=twd_dev.test] at @s anchored feet align x if block ~ ~-1.85 ~ cyan_glazed_terracotta[facing=south] run tp @s ~.5 ~ ~-0.085 180 ~;
-        execute as @e[tag=twd_dev.test] at @s anchored feet align z if block ~ ~-1.85 ~ cyan_glazed_terracotta[facing=west] run tp @s ~0.085 ~ ~.5 -90 ~;
-        execute as @e[tag=twd_dev.test] at @s if block ~ ~-1.968 ~ air run kill @s;
+    function commodities(){
+        execute as @e[type=area_effect_cloud] at @s run {
+            particle dust 1 0.169 0.169 0.33 ~ ~.25 ~ 0 0.082 0 0 8 force @a[tag=dev];
+            
+            
+            
+    }
     }
     function summon.unit(){
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{unit:0b}}}}] at @s align xz run summon armor_stand ~0.5 ~0.15 ~0.5 {CustomNameVisible:1b,Silent:1b,Invulnerable:1b,ShowArms:1b,Small:1b,NoBasePlate:1b,Tags:["groundUnit","unit"],DisabledSlots:4144959,Rotation:[90F,0F],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:10262861}}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:15460213}}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:15460213}}},{id:"minecraft:sand",Count:1b,Slot:0b}],CustomName:'{"text":"Sand","color":"#D6D36B","bold":true}'};
@@ -159,21 +142,21 @@ class src.dev {
             summon armor_stand ~.5 ~1 ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:redstone_lamp",Count:1b}]};
             summon armor_stand ~.5 ~1.435  ~.5 {NoGravity:1b,Silent:1b,Small:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:waxed_cut_copper_slab",Count:1b}]};
         }
-# execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{tower:1b}}}}] at @s align xz run {
-#     summon armor_stand ~.5 ~ ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:waxed_cut_copper_slab",Count:1b}]};
-#     summon armor_stand ~.5 ~1 ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:redstone_lamp",Count:1b}]};
-#     summon armor_stand ~.5 ~1.435  ~.5 {NoGravity:1b,Silent:1b,Small:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:waxed_cut_copper_slab",Count:1b}]};
-# }
-# execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{tower:2b}}}}] at @s align xz run {
-#     summon armor_stand ~.5 ~-0.5 ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:stone_brick_slab",Count:1b}]};
-#     summon armor_stand ~.5 ~1 ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:redstone_lamp",Count:1b}]};
-#     summon armor_stand ~.5 ~1.435  ~.5 {NoGravity:1b,Silent:1b,Small:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:stone_brick_slab",Count:1b}]};
-# }
-# execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{tower:3b}}}}] at @s align xz run {
-#     summon armor_stand ~.5 ~ ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:brick_slab",Count:1b}]};
-#     summon armor_stand ~.5 ~1 ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:redstone_lamp",Count:1b}]};
-#     summon armor_stand ~.5 ~1.435  ~.5 {NoGravity:1b,Silent:1b,Small:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:brick_slab",Count:1b}]};
-# }
+        execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{tower:1b}}}}] at @s align xz run {
+            summon armor_stand ~.5 ~ ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:waxed_cut_copper_slab",Count:1b}]};
+            summon armor_stand ~.5 ~1 ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:redstone_lamp",Count:1b}]};
+            summon armor_stand ~.5 ~1.435  ~.5 {NoGravity:1b,Silent:1b,Small:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:waxed_cut_copper_slab",Count:1b}]};
+        }
+        execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{tower:2b}}}}] at @s align xz run {
+            summon armor_stand ~.5 ~-0.5 ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:stone_brick_slab",Count:1b}]};
+            summon armor_stand ~.5 ~1 ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:redstone_lamp",Count:1b}]};
+            summon armor_stand ~.5 ~1.435  ~.5 {NoGravity:1b,Silent:1b,Small:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:stone_brick_slab",Count:1b}]};
+        }
+        execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{tower:3b}}}}] at @s align xz run {
+            summon armor_stand ~.5 ~ ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:brick_slab",Count:1b}]};
+            summon armor_stand ~.5 ~1 ~.5 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:redstone_lamp",Count:1b}]};
+            summon armor_stand ~.5 ~1.435  ~.5 {NoGravity:1b,Silent:1b,Small:1b,Invulnerable:1b,Invisible:1b,Glowing:0b,Marker:0b,ShowArms:0b,NoBasePlate:1b,Tags:["twd_game","twd_game.tower","twd_game.towerPart."],ArmorItems:[{},{},{},{id:"minecraft:brick_slab",Count:1b}]};
+        }
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{tower:4b}}}}] at @s align xyz run {
             
         }
