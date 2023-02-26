@@ -9,6 +9,7 @@ function src.game.start()
     execute align xz positioned 39.2 23.6 -16 run summon villager ~ ~ ~ {NoAI:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,ActiveEffects:[{Id:1,Amplifier:0,Duration:2147483647,ShowParticles:false}],Tags:["twd_game","twd_game.shop","twd_shop.next"]};
     execute align xz positioned 41.8 23.6 -16 run summon villager ~ ~ ~ {NoAI:1b,NoGravity:1b,Silent:1b,Invulnerable:1b,ActiveEffects:[{Id:1,Amplifier:0,Duration:2147483647,ShowParticles:false}],Tags:["twd_game","twd_game.shop","twd_shop.prev"]};
     }
+    
 function src.game.host()
     {
     execute unless entity @a[tag=host,limit=1] run tag @s add host;
@@ -28,6 +29,7 @@ function src.game.game_over(){
     Text.title(@a[tag=twd_game.player],"&<bold,dark_red>Game over");
 }
 class src.game.code {
+# code game functions
     function main()
         {
         execute as @a[tag=twd_game.player] run stopsound @s * minecraft:block.portal.ambient;
@@ -35,31 +37,34 @@ class src.game.code {
         execute as @a[tag=twd_game.shop] unless entity @s[x=35,y=23,z=-27,dx=10,dy=7,dz=13] run tag @s remove twd_game.shop;
         execute as @a[tag=twd_game.shop] run src.game.code.shop();
         }
+## Parser
+    function parser.loop(){
+        execute as @e[tag=twd_c] at @s unless data block ~ ~ ~ Items[0].tag.BlockEntityTag.Items[0] run scoreboard players add twd.parser_delay twd 1;
+        execute as @e[tag=twd_c] at @s unless data block ~ ~ ~ Items[0].tag.BlockEntityTag.Items[0] run src.game.code.parser.step();
+        execute if score twd.parser_delay twd matches 4.. run scoreboard players reset twd.parser_delay twd;
+    }
     function parser.step(){
         execute as @e[tag=twd_c] at @s run {
             src.game.code.parser.check();
-            data remove block ~ ~ ~ Items[0].tag.BlockEntityTag.Items[0];
             Hardcode.repeat("$i",()=>{data modify block ~ ~ ~ Items[0].tag.BlockEntityTag.Items[Hardcode.calc($i+1)].Slot set value $ib;},0,26);
+            data remove block ~ ~ ~ Items[0].tag.BlockEntityTag.Items[0];
         }
     }
-    function parser.loop(){
-        execute unless block ~ ~ ~ chest{Items:[{Slot}]};
-    }
-    // TODO: Make parser for chest-in-chest
-    // TODO: Output parsed data to storage array
-    // TODO: Summon entites from read storage data
-    // TODO: Shop basic selection + buying system
-    // TODO: Main menu/box/lobby
-    // TODO: New user world
+
     function parser.check(){
         Hardcode.repeatList(
             "$id",
             ()=>{
-                execute if block ~ ~ ~ chest{Items:[{Slot:0b,tag:{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:$id",Count:1b}]}}}]} run summon item ~ ~0.5 ~ {Motion:[0.085,0.0],Item:{id:"minecraft:$id",Count:1b}};
+                execute if block ~ ~ ~ chest{Items:[{Slot:0b,tag:{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:$id",Count:1b}]}}}]} run say "$id";
             },
                 ["sand","stone","glass","grass_block","melon","obsidian","netherrack","bedrock"]
             );
         }
+    function parser.next(){
+        execute unless data block ~ ~ ~ Items[0].tag.BlockEntityTag.Items[0] run data remove block ~ ~ ~ Items[0];
+        Hardcode.repeat("$i",()=>{data modify block ~ ~ ~ Items[Hardcode.calc($i+1)].Slot set value $ib;},0,26);
+    }
+## World 
     function path(){
         execute as @e[tag=twd_game.unit] at @s align x if block ~ ~-2.35 ~ magenta_glazed_terracotta[facing=north] run tp @s ~0.487 ~ ~0.1 0 ~;
         execute as @e[tag=twd_game.unit] at @s align z if block ~ ~-2.35 ~ magenta_glazed_terracotta[facing=east] run tp @s ~-0.1 ~ ~0.487 90 ~;
@@ -86,6 +91,7 @@ class src.game.code {
         execute as @a[tag=twd_game.player] at @s run give @s written_book{pages:["Welcome to this half baked half finished looking map,\\nif you find this somewhere just please burn it."],author:"Shywizz",title:"§dThe basics",resolved:1b} 1;
         execute as @a[tag=twd_game.player] at @s run tag @s remove twd_game.player;
     }
+## Shop
     function shop(){
         scoreboard players add shopItemRotation var 1;
         execute if score shopItemRotation var matches 360.. run scoreboard players set shopItemRotation var -360;
@@ -104,6 +110,14 @@ class src.game.code {
         execute as @s[tag=twd_shop.prev.click] if score @s timer matches 16.. run scoreboard players reset @s timer;
         execute as @s[tag=twd_shop.prev,tag=twd_shop.prev.click] run tag @s remove twd_shop.prev.click;
     }
+## GOALS
+    // TODO: Make parser for chest-in-chest
+    // TODO: Output parsed data to storage array
+    // TODO: Summon entites from read storage data
+    // TODO: Shop basic selection + buying system
+    // TODO: Main menu/box/lobby
+    // TODO: New user world
+# End
 }
 class src.dev {
     function fly(){
@@ -160,7 +174,6 @@ class src.dev {
         execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",Count:1b,tag:{customData:{tower:4b}}}}] at @s align xyz run {
             
         }
-# execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:item_frame",tag:{customData:{}}}}] run kill @s;
     }
     function packtools(){
         execute as @e[nbt={Item:{tag:{packTricks:{"summonAeC":1b}}}}] at @s align xz unless block ~ ~-0.25 ~ air run summon area_effect_cloud ~.5 ~ ~.5 {CustomName:'{"text": "change me !","italic": true,"color": "light_purple"}',CustomNameVisible:1b,Duration:2147000,Tags:["dev","default","temp"]};

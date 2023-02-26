@@ -1,6 +1,7 @@
 Scoreboard.add(var,dummy);
 Scoreboard.add(wave,dummy);
 Scoreboard.add(globals,dummy);
+Scoreboard.add(twd,dummy);
     function funk(){
         Hardcode.repeat(
             "$id",
